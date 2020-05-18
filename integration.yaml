@@ -5,8 +5,8 @@ channel: alpha
 version: v20200515
 summary: GitHub integration
 license: Apache-2.0
-homepage: https://github.com/relay-integrations/template
-source: https://github.com/relay-integrations/template
+homepage: https://github.com/relay-integrations/github
+source: https://github.com/relay-integrations/github
 
 description: |
   Relay GitHub integration.
