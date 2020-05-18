@@ -1,0 +1,6 @@
+apiVersion: container/v1
+kind: StepContainer
+inherit: defs/python.v1
+title: Github PR Merged Trigger
+description: >
+  This trigger fires when a GitHub PR is merged.

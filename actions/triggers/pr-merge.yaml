@@ -1,10 +1,11 @@
 apiVersion: integration/v1
 kind: Trigger
-name: template
+name: pr-merge
 version: 1
-summary: Step template
+summary: PR merge trigger
+
 description: |
-  This is a template for a simple step.
+  This trigger fires when a GitHub PR is merged.
 
 responders:
 - webhook
