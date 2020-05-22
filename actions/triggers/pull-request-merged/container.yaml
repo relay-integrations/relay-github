@@ -1,10 +1,10 @@
 apiVersion: container/v1
 kind: StepContainer
 inherit: {from: sdk, name: python.v1}
-title: Github PR Merged Trigger
+title: GitHub pull request merged
 description: >
-  This trigger fires when a GitHub PR is merged.
+  This trigger fires when a GitHub pull request is merged.
 settings:
-  CommandPath: server.py
+  CommandPath: handler.py
   AdditionalPythonPackages:
   - quart

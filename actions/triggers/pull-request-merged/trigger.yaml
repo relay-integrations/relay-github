@@ -1,11 +1,11 @@
 apiVersion: integration/v1
 kind: Trigger
-name: pr-merge
+name: pull-request-merged
 version: 1
-summary: PR merge trigger
+summary: GitHub pull request merged
 
 description: |
-  This trigger fires when a GitHub PR is merged.
+  This trigger fires when a GitHub pull request is merged.
 
 responders:
 - webhook

@@ -38,9 +38,9 @@ done
 shift $(( OPTIND - 1 ))
 
 
-$DOCKER $DOCKER_ARGS build $DOCKER_BUILD_ARGS --tag sdk.nebula.localhost/intermediate/b63ce52926df/pr-merge --file Dockerfile .
+$DOCKER $DOCKER_ARGS build $DOCKER_BUILD_ARGS --tag sdk.nebula.localhost/intermediate/16a178332ebd/pull-request-merged --file Dockerfile .
 
 for TAG in ${TAGS[@]+"${TAGS[@]}"}; do
-  $DOCKER $DOCKER_ARGS tag sdk.nebula.localhost/intermediate/b63ce52926df/pr-merge "sdk.nebula.localhost/generated/pr-merge:${TAG}" && \
-    printf "# Tagged %s:%s\n" sdk.nebula.localhost/generated/pr-merge "${TAG}"
+  $DOCKER $DOCKER_ARGS tag sdk.nebula.localhost/intermediate/16a178332ebd/pull-request-merged "sdk.nebula.localhost/generated/pull-request-merged:${TAG}" && \
+    printf "# Tagged %s:%s\n" sdk.nebula.localhost/generated/pull-request-merged "${TAG}"
 done
