@@ -1,15 +1,16 @@
 apiVersion: integration/v1
 kind: Integration
-name: template
-channel: stable
-version: v20200514
-summary: Integration template
+name: github
+channel: alpha
+version: v20200515
+summary: Relay integration for GitHub
 license: Apache-2.0
-homepage: https://github.com/relay-integrations/template
-source: https://github.com/relay-integrations/template
+homepage: https://github.com/relay-integrations/github
+source: https://github.com/relay-integrations/github
 
 description: |
-  This is a template for creating a Relay Integration repository.
+  This integration provides interoperability with GitHub via its API and
+  webhooks.
 
 owner:
   name: Puppet, Inc.
@@ -17,5 +18,7 @@ owner:
   url: https://puppet.com
 
 tags:
-- template
+- git
+- source control
+- github
 - relay integration

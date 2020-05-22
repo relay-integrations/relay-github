@@ -1,10 +1,11 @@
 apiVersion: integration/v1
 kind: Trigger
-name: template
+name: pull-request-merged
 version: 1
-summary: Step template
+summary: GitHub pull request merged
+
 description: |
-  This is a template for a simple step.
+  This trigger fires when a GitHub pull request is merged.
 
 responders:
 - webhook
