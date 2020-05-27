@@ -11,4 +11,4 @@ This trigger fires when a PR is merged.
 | repository       | The name of the repository as username/repo-name                      |
 | repositoryURL    | The URL to the repository on GitHub                                   |
 | repositoryGitURL | The URL to the repository as a git:// scheme                          |
-| repositorySSHURL | The SSH-style URL (e.g. git@github.com:username/repo-name             |
+| repositorySSHURL | The SSH-style URL (e.g. git@github.com:username/repo-name)            |
