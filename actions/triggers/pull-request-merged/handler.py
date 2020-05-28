@@ -29,7 +29,11 @@ async def handler():
     pr = event_payload['pull_request']
     if event_payload['action'] == 'closed' and pr['merged'] is True:
         relay.events.emit({
+            'url': pr['url'],
             'repository': event_payload['repository']['full_name'],
+            'repositoryURL': pr['base']['repo']['html_url'],
+            'repositoryGitURL': pr['base']['repo']['git_url'],
+            'repositorySSHURL': pr['base']['repo']['ssh_url'],
             'branch': pr['base']['ref']
         })
 
