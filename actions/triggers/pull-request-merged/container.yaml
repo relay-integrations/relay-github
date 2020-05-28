@@ -1,5 +1,6 @@
 apiVersion: container/v1
 kind: StepContainer
+name: github-trigger-pull-request-merged
 inherit: {from: sdk, name: python.v1}
 title: GitHub pull request merged
 description: >

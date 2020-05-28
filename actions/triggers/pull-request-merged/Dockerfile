@@ -4,9 +4,9 @@ FROM python:3-alpine
 RUN apk --no-cache add bash ca-certificates curl git jq openssh && update-ca-certificates
 RUN pip --no-cache-dir install "https://packages.nebula.puppet.net/sdk/support/python/v1/nebula_sdk-1-py3-none-any.whl"
 RUN pip --no-cache-dir install quart
-COPY "./handler.py" "/nebula/step-pull-request-merged.py"
+COPY "./handler.py" "/nebula/step-github-trigger-pull-request-merged.py"
 ENTRYPOINT []
-CMD ["python3", "/nebula/step-pull-request-merged.py"]
+CMD ["python3", "/nebula/step-github-trigger-pull-request-merged.py"]
 
 LABEL "org.opencontainers.image.title"="GitHub pull request merged"
 LABEL "org.opencontainers.image.description"="This trigger fires when a GitHub pull request is merged."
