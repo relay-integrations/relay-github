@@ -27,6 +27,15 @@ async def handler():
         return {'message': 'not a valid GitHub event'}, 400, {}
 
     pr = event_payload['pull_request']
+
+    branch = None
+    try:
+        branch = relay.get(D.branch)
+        if pr['base']['ref'] != branch: 
+            return {'message': 'not the desired branch'}, 400, {}
+    except:
+        pass
+
     if event_payload['action'] == 'closed' and pr['merged'] is True:
         relay.events.emit({
             'repository': event_payload['repository']['full_name'],
