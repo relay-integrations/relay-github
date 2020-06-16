@@ -1,6 +1,6 @@
 apiVersion: integration/v1
 kind: Trigger
-name: pull-request-merged
+name: github-trigger-pull-request-merged
 version: 1
 summary: GitHub pull request merged
 

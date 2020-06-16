@@ -1,4 +1,4 @@
-# pull-request-merged
+# github-trigger-pull-request-merged
 
 This trigger fires when a PR is merged.
 
@@ -12,3 +12,23 @@ This trigger fires when a PR is merged.
 | repositoryURL    | The URL to the repository on GitHub                                   |
 | repositoryGitURL | The URL to the repository as a git:// scheme                          |
 | repositorySSHURL | The SSH-style URL (e.g. git@github.com:username/repo-name)            |
+
+## Example Trigger Configuration
+
+```
+parameters:
+  branch: 
+    default: master
+  repository:
+    default: "kenazk/testing"
+    
+triggers:
+- name: github-pr-merge
+  source:
+    type: webhook
+    image: relaysh/github-trigger-pull-request-merged
+  binding:
+    parameters:
+      repository: !Data repository 
+      branch: !Data branch
+```

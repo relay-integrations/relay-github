@@ -6,6 +6,6 @@ Integration with GitHub for Puppet Relay
 
 The following are supported actions:
 
-### Triggers
-
-pull-request-merged: This event triggers when a GitHub PR is merged.
+| Type | Name | Description |
+|------|-------------|-----| 
+| Trigger | [github-trigger-pull-request-merged](/triggers/github-trigger-pull-request-merged) | Triggers when pull request is merged |
