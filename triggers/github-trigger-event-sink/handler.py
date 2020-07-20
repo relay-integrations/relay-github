@@ -4,7 +4,7 @@ from quart import Quart, request, jsonify, make_response
 import logging
 
 relay = Interface()
-app = Quart('pull-request-merged')
+app = Quart('github-event')
 
 logging.getLogger().setLevel(logging.INFO)
 
