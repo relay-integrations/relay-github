@@ -2,10 +2,11 @@
 
 Integration with GitHub for Puppet Relay
 
-## Actions
+## Triggers
 
-The following are supported actions:
+This integration contains the following triggers:
 
-| Type | Name | Description |
-|------|-------------|-----| 
-| Trigger | [github-trigger-pull-request-merged](/triggers/github-trigger-pull-request-merged) | Triggers when pull request is merged |
+| Name | Description |
+|------|-------------| 
+| [github-trigger-pull-request-merged](/triggers/github-trigger-pull-request-merged) | Triggers when pull request is merged |
+| [github-trigger-event-sink](/triggers/github-trigger-event-sink) | Passes through webhook event payload to worklfow |

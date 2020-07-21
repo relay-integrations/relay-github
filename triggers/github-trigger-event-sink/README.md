@@ -1,34 +1,39 @@
-# github-trigger-pull-request-merged
+# github-trigger-event-sink
 
-This trigger fires when a PR is merged.
+This trigger is an almost-transparent pass through for event actions from github.
+Its purpose is to provide a compatibility layer for Github Actions, by enabling the
+payload from the webhook to be used on the filesystem of a Relay step. 
+
+The payload will be wrapped in an additional map called `event_payload` and
+needs to be unwrapped at the step level in order to use it; see the example below.
 
 ## Event data
 
 | Key              | Description                                                           |
 |------------------|-----------------------------------------------------------------------|
-| url              | The pull request URL                                                  |
-| branch           | The branch that the changes were pulled into (destination for the PR) |
-| repository       | The name of the repository as username/repo-name                      |
-| repositoryURL    | The URL to the repository on GitHub                                   |
-| repositoryGitURL | The URL to the repository as a git:// scheme                          |
-| repositorySSHURL | The SSH-style URL (e.g. git@github.com:username/repo-name)            |
+| event_payload    | The payload of the incoming webhook request
 
-## Example Trigger Configuration
+## Example Usage
 
-```
+```yaml
 parameters:
-  branch: 
-    default: master
-  repository:
-    default: "kenazk/testing"
-    
+  event_payload:
+    description: "The full json payload from the incoming github event"
 triggers:
-- name: github-pr-merge
-  source:
-    type: webhook
-    image: relaysh/github-trigger-pull-request-merged
-  binding:
-    parameters:
-      repository: !Data repository 
-      branch: !Data branch
+  - name: github-event
+    source:
+      type: webhook
+      image: relaysh/github-trigger-event-sink
+    binding:
+      parameters:
+        event_payload: !Data event_payload
+steps:
+  - name: dump-payload
+    image: relaysh/core
+    spec:
+      event_payload: !Parameter event_payload
+    input:
+      - mkdir -p /github/workflow
+      - "ni get | jq .event_payload > /github/workflow/event.json"
+      - cat /github/workflow/event.json
 ```
