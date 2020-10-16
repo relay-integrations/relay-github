@@ -24,7 +24,7 @@ publish:
 examples:
 - summary: When a Pull Request is merged
   content:
-    apiVersion: 1
+    apiVersion: v1
     kind: Trigger
     name: github-pr-merge
     source:
