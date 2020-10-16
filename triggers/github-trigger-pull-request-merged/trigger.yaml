@@ -20,3 +20,17 @@ build:
 
 publish:
   repository: relaysh/github-trigger-pull-request-merged
+
+examples:
+- summary: When a Pull Request is merged
+  content:
+    apiVersion: v1
+    kind: Trigger
+    name: github-pr-merge
+    source:
+      type: webhook
+      image: relaysh/github-trigger-pull-request-merged
+    binding:
+      parameters:
+        repository: !Data repository
+        branch: !Data branch
