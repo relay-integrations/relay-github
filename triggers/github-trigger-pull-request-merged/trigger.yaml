@@ -13,6 +13,9 @@ responders:
 schemas:
   spec:
     $schema: http://json-schema.org/draft-07/schema#
+  event:
+    source: file
+    file: event.schema.json
 
 build:
   apiVersion: build/v1
