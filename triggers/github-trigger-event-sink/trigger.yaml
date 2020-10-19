@@ -2,7 +2,7 @@ apiVersion: integration/v1
 kind: Trigger
 name: github-trigger-event-sink
 version: 1
-summary: GitHub Event sink
+summary: GitHub event fired
 
 description: |
   This trigger takes in the contents of a github event and presents it as an output event
