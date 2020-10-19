@@ -2,13 +2,14 @@
 
 This trigger fires when a PR is merged.
 
-## Event data
+## Setup Instructions
 
-| Key              | Description                                                           |
-|------------------|-----------------------------------------------------------------------|
-| url              | The pull request URL                                                  |
-| branch           | The branch that the changes were pulled into (destination for the PR) |
-| repository       | The name of the repository as username/repo-name                      |
-| repositoryURL    | The URL to the repository on GitHub                                   |
-| repositoryGitURL | The URL to the repository as a git:// scheme                          |
-| repositorySSHURL | The SSH-style URL (e.g. git@github.com:username/repo-name)            |
+- Navigate to the repository settings page by clicking **Settings** on the repository bar.  
+- Click **Webhooks**.  
+- Click **Add webhook**  
+- Paste the webhook URL in the **Payload URL** box  
+- Change **Content type** to `application/json`  
+- Click **Let me select individual events.**  
+- Check the **Pull requests** box  
+- Uncheck the **Pushes** box  
+- Click **Add webhook** at the bottom of the page  
