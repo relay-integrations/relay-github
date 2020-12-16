@@ -2,6 +2,7 @@ from relay_sdk import Interface, WebhookServer
 from quart import Quart, request, jsonify, make_response
 
 import logging
+import json
 
 relay = Interface()
 app = Quart('github-event')
@@ -18,14 +19,17 @@ async def handler():
     if github_event == 'ping':
         return {'message': 'success'}, 200, {}
 
-    logging.info("receiving event from GitHub: {}".format(github_event))
+    logging.info("Received event from GitHub: {}".format(github_event))
 
     event_payload = await request.get_json()
+    logging.info("Received the following webhook payload: \n%s", json.dumps(event_payload, indent=4))
+
     if event_payload is None:
         return {'message': 'not a valid GitHub event'}, 400, {}
 
     relay.events.emit({
-          'event_payload': event_payload
+          'event_payload': event_payload,
+          'github_event': event_payload['action']
       })
 
     return {'message': 'success'}, 200, {}
