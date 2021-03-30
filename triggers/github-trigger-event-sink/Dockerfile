@@ -1,7 +1,7 @@
 FROM relaysh/core:latest-python
-COPY "./handler.py" "/trigger-github-action-sink.py"
+COPY "./handler.py" "/handler.py"
 ENTRYPOINT []
-CMD ["python3", "/trigger-github-action-sink.py"]
+CMD ["python3", "/handler.py"]
 
 LABEL "org.opencontainers.image.title"="GitHub action sink"
 LABEL "org.opencontainers.image.description"="This trigger takes in the contents of a github event and presents it as an output event"
