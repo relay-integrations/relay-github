@@ -1,14 +1,14 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-      "event_payload": {
-        "type": "object",
-        "description": "Payload of the incoming webhook request"
-      }
-    },
-    "required": [
-      "event_payload"
-    ],
-    "additionalProperties": false
-  }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "event_payload": {
+      "type": "object",
+      "description": "Payload of the incoming webhook request"
+    }
+  },
+  "required": [
+    "event_payload"
+  ],
+  "additionalProperties": false
+}
