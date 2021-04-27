@@ -21,3 +21,16 @@ build:
 
 publish:
   repository: relaysh/github-trigger-event-sink
+
+examples:
+- summary: When a GitHub event fires
+  content:
+    apiVersion: v1
+    kind: Trigger
+    name: github-trigger-event
+    source:
+      type: webhook
+      image: relaysh/github-trigger-event-sink
+    binding:
+      parameters:
+        event_payload: !Data event_payload
