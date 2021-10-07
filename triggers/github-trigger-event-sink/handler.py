@@ -22,15 +22,20 @@ async def handler():
     logging.info("Received event from GitHub: {}".format(github_event))
 
     event_payload = await request.get_json()
-    logging.info("Received the following webhook payload: \n%s", json.dumps(event_payload, indent=4))
+    logging.info("Received the following webhook payload: \n%s",
+                 json.dumps(event_payload, indent=4))
 
     if event_payload is None:
         return {'message': 'not a valid GitHub event'}, 400, {}
 
+    action = ""
+    if 'action' in event_payload:
+        action = event_payload.get('action')
+
     relay.events.emit({
-          'event_payload': event_payload,
-          'github_event': event_payload['action']
-      })
+        'event_payload': event_payload,
+        'github_event': action,
+    })
 
     return {'message': 'success'}, 200, {}
 
