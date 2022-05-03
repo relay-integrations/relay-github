@@ -32,9 +32,15 @@ async def handler():
     if 'action' in event_payload:
         action = event_payload.get('action')
 
+    logging.info("Emitting event_payload, event_action: \n%s\ngithub_event: \n%s",
+                 json.dumps(action, indent=4),
+                 json.dumps(github_event, indent=4)
+                 )
+
     relay.events.emit({
         'event_payload': event_payload,
-        'github_event': action,
+        'event_action': action,
+        'github_event': github_event,
     })
 
     return {'message': 'success'}, 200, {}

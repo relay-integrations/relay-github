@@ -2,6 +2,14 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
+    "github_event": {
+      "type": "string",
+      "description": "Type of the Github event that triggered the webhook"
+    },
+    "event_action": {
+      "type": "string",
+      "description": "The event action, if any"
+    },
     "event_payload": {
       "type": "object",
       "description": "Payload of the incoming webhook request"
