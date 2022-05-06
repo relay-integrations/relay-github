@@ -22,6 +22,8 @@ needs to be unwrapped at the step level in order to use it; see the example belo
 
 ```yaml
 parameters:
+  github_event:
+    description: "The type of the incoming github event"
   event_payload:
     description: "The full json payload from the incoming github event"
 triggers:
@@ -31,12 +33,13 @@ triggers:
       image: relaysh/github-trigger-event-sink
     binding:
       parameters:
-        event_payload: !Data event_payload
+        github_event: ${event.github_event}
+        event_payload: ${event.event_payload}
 steps:
   - name: dump-payload
     image: relaysh/core
     spec:
-      event_payload: !Parameter event_payload
+      event_payload: ${parameters.event_payload}
     input:
       - mkdir -p /github/workflow
       - "ni get | jq .event_payload > /github/workflow/event.json"

@@ -28,13 +28,9 @@ async def handler():
     if event_payload is None:
         return {'message': 'not a valid GitHub event'}, 400, {}
 
-    action = ""
-    if 'action' in event_payload:
-        action = event_payload.get('action')
-
     relay.events.emit({
         'event_payload': event_payload,
-        'github_event': action,
+        'github_event': github_event,
     })
 
     return {'message': 'success'}, 200, {}

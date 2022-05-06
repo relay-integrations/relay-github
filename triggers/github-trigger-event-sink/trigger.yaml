@@ -33,4 +33,5 @@ examples:
       image: relaysh/github-trigger-event-sink
     binding:
       parameters:
-        event_payload: !Data event_payload
+        github_event: ${event.github_event}
+        event_payload: ${event.event_payload}
