@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+	"connection": {
+	  "type": "object",
+	  "description": "A GitHub connection",
+	  "properties": {
+		"accessToken": {
+		  "type": "string",
+		  "writeOnly": true,
+		  "description": "A GitHub access token"
+		}
+	  },
+	  "required": [
+		"accessToken"
+	  ]
+	},
+	"repos": {
+	  "type": "array",
+	  "items": {
+		"type": "string"
+	  },
+	  "description": "A list of repositories to validate."
+	},
+	"path": {
+	  "type": "string",
+	  "description": "The string form of a regex matching expected forms of the file path. Exclusive to path."
+	},
+	"content": {
+	  "type": "string",
+	  "description": "The string form of the regex to match against file content",
+	  "default": "all"
+	},
+	"match": {
+	  "type": "string",
+	  "description": "The type of matching to use. (positive, negative)",
+	  "default": "positive"
+	}
+  },
+  "required": [
+	"repos",
+	"content"
+  ],
+  "additionalProperties": false
+}

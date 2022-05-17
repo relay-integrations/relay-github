@@ -7,7 +7,7 @@ kind: Step
 
 # The name of the action. Required. Must be exactly the name of the directory
 # containing the action.
-name: github-step-repositories-file-content-validate
+name: repositories-file-content-validate
 
 # The version of the action. Required. Must be an integer. If specified in the
 # directory name, must be exactly the version in the directory name.
@@ -55,7 +55,8 @@ examples:
     name: flag-missing-copyright
     image: relaysh/github-step-repositories-file-content-validate
     spec:
-      token: 1234567890
+      connection:
+        accessToken: ${secrets.my-github-access-token}
       repos: ['exampleorg/repo1', 'exampleorg/repo2']
       content: '.*Copyright Notice.*'
       path_regex: '(?i)README'
