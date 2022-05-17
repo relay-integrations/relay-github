@@ -5,7 +5,7 @@ from relay_sdk import Interface, Dynamic as D
 relay = Interface()
 
 try:
-  token = relay.get(D.token)
+  token = relay.get(D.connection.accessToken)
   org = relay.get(D.org)
 except:
   raise ValueError("Token and org are required parameters")

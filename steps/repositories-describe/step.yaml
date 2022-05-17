@@ -7,7 +7,7 @@ kind: Step
 
 # The name of the action. Required. Must be exactly the name of the directory
 # containing the action.
-name: github-step-repositories-describe
+name: repositories-describe
 
 # The version of the action. Required. Must be an integer. If specified in the
 # directory name, must be exactly the version in the directory name.
@@ -55,6 +55,7 @@ examples:
     image: relaysh/github-step-repositories-describe
     spec:
       github:
-        connection: !Connection { type: github, name: my-github-account }
+        connection:
+          accessToken: ${secrets.my-github-access-token}
         org: !Parameter my-org
 

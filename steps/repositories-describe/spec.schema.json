@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "connection": {
+      "type": "object",
+      "description": "A GitHub connection",
+      "properties": {
+        "accessToken": {
+          "type": "string",
+          "writeOnly": true,
+          "description": "A GitHub access token"
+        }
+      },
+      "required": [
+        "accessToken"
+      ]
+    },
+    "org": {
+      "type": "string",
+      "description": "The GitHub org to query."
+    },
+    "scope": {
+      "type": "string",
+      "description": "The repository scope or type to query for. (all, public, private, forks, sources, member)",
+      "default": "all"
+    },
+    "sort": {
+      "type": "string",
+      "description": "The property to sort by. (created, updated, pushed, full_name)",
+      "default": "created"
+    },
+    "direction": {
+      "type": "string",
+      "description": "The direction to sort by. (asc, desc)",
+      "default": "asc"
+    }
+  },
+  "required": [
+    "org",
+    "githubToken"
+  ],
+  "additionalProperties": false
+}
