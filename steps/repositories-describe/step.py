@@ -10,9 +10,20 @@ try:
 except:
   raise ValueError("Token and org are required parameters")
 
-scope = relay.get(D.scope)
-sort = relay.get(D.sort)
-direction = relay.get(D.direction)
+try:
+  scope = relay.get(D.scope)
+except:
+  scope = "all"
+
+try:
+  sort = relay.get(D.sort)
+except:
+  sort = "created"
+
+try:
+  direction = relay.get(D.direction)
+except:
+  direction = "asc"
 
 gh = Github(token)
 
