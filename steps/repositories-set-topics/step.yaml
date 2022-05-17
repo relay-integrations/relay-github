@@ -7,7 +7,7 @@ kind: Step
 
 # The name of the action. Required. Must be exactly the name of the directory
 # containing the action.
-name: github-step-repositories-set-topics
+name: repositories-set-topics
 
 # The version of the action. Required. Must be an integer. If specified in the
 # directory name, must be exactly the version in the directory name.
@@ -51,7 +51,8 @@ examples:
     name: set-topics
     image: relaysh/github-step-repositories-set-topics
     spec:
-      token: 1234567890
+      connection:
+        accessToken: ${secrets.my-github-access-token}
       repos: ['exampleorg/repo1', 'exampleorg/repo2']
       topics: ['stale']
 - summary: Append to topics on a list of repositories
@@ -61,7 +62,8 @@ examples:
     name: set-topics
     image: relaysh/github-step-repositories-set-topics
     spec:
-      token: 1234567890
+      connection:
+        accessToken: ${secrets.my-github-access-token}
       repos: ['exampleorg/repo1', 'exampleorg/repo2']
       topics: ['stale']
       mode: add

@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+	"connection": {
+	  "type": "object",
+	  "description": "A GitHub connection",
+	  "properties": {
+		"accessToken": {
+		  "type": "string",
+		  "writeOnly": true,
+		  "description": "A GitHub access token"
+		}
+	  },
+	  "required": [
+		"accessToken"
+	  ]
+	},
+	"repos": {
+	  "type": "array",
+	  "items": {
+		"type": "string"
+	  },
+	  "description": "A list of repositories to modify."
+	},
+	"topics": {
+	  "type": "array",
+	  "items": {
+		"type": "string"
+	  },
+	  "description": "The topics to add or replace with."
+	},
+	"mode": {
+	  "type": "string",
+	  "description": "Whether to replace or add. (replace, add)",
+	  "default": "replace"
+	}
+  },
+  "required": [
+	"repos",
+	"topics"
+  ],
+  "additionalProperties": false
+}

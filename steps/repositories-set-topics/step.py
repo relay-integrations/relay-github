@@ -5,13 +5,17 @@ from relay_sdk import Interface, Dynamic as D
 relay = Interface()
 
 try:
-  token = relay.get(D.token)
+  token = relay.get(D.connection.accessToken)
   repos = relay.get(D.repos)
   topics = relay.get(D.topics)
 except:
-  raise ValueError("Token, repos, and topics are all required parameters")
+  raise ValueError("Connection, repos, and topics are all required.")
 
-mode = relay.get(D.mode)
+try:
+  mode = relay.get(D.mode)
+except:
+  mode = 'replace'
+
 gh = Github(token)
 
 for name in repos:
