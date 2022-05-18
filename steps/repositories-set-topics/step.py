@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from github import Github, UnknownObjectException
+from github import Github, UnknownObjectException, GithubException
 from relay_sdk import Interface, Dynamic as D
 
 relay = Interface()
@@ -30,5 +30,5 @@ for name in repos:
 
     print(f'success.')
 
-  except UnknownObjectException as err:
+  except (UnknownObjectException, GithubException) as err:
     print(f'unknown repository or insufficient permissions; skipping.')
