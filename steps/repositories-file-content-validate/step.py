@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import re
-from github import Github, UnknownObjectException
+from github import Github, UnknownObjectException, GithubException
 from relay_sdk import Interface, Dynamic as D
 
 relay = Interface()
@@ -40,18 +40,19 @@ for name in repos:
     repo = gh.get_repo(name)
 
     if path_regex:
-      path = list(filter(lambda x: re.match(path_regex, x.path), repo.get_contents('/')))[0].path
+      files = list(filter(lambda x: re.match(path_regex, x.path), repo.get_contents('/')))
+      if files:
+        path = files[0].path
+      else:
+        raise ValueError("No files matched given regex")
 
-    if path:
-      blob = repo.get_contents(path).decoded_content.decode("utf-8")
-      if re.match(content, blob):
-        matches.append(name)
-    else:
-      raise UnknownObjectException("No files matched given regex")
+    blob = repo.get_contents(path).decoded_content.decode("utf-8")
+    if re.match(content, blob):
+      matches.append(name)
 
     print(f'success.')
 
-  except UnknownObjectException as err:
+  except (UnknownObjectException, GithubException, ValueError) as err:
     print(f'cannot access file or repository; skipping. {err}')
 
 if match == 'negative':
