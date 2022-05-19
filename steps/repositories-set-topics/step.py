@@ -24,11 +24,13 @@ for name in repos:
     repo = gh.get_repo(name)
 
     if mode == 'add':
-      topics = topics + repo.get_topics()
+      newtopics = topics + repo.get_topics()
+    else:
+      newtopics = topics
 
-    repo.replace_topics(topics)
+    repo.replace_topics(newtopics)
 
     print(f'success.')
 
   except (UnknownObjectException, GithubException) as err:
-    print(f'unknown repository or insufficient permissions; skipping.')
+    print(f'unknown repository or insufficient permissions; skipping. {err}')
