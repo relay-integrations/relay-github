@@ -20,6 +20,10 @@
       "type": "string",
       "description": "The GitHub org to query."
     },
+    "name": {
+      "type": "string",
+      "description": "The name of a single repo within the org to return."
+    },
     "scope": {
       "type": "string",
       "description": "The repository scope or type to query for. (all, public, private, forks, sources, member)",
@@ -34,6 +38,13 @@
       "type": "string",
       "description": "The direction to sort by. (asc, desc)",
       "default": "asc"
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Additional fields to return in the output."
     }
   },
   "required": [
