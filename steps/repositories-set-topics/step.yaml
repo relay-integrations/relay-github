@@ -36,7 +36,7 @@ build:
   kind: Docker
 
 publish:
-  repository: relaysh/relay-github
+  repository: relaysh/github-step-repositories-set-topics
 
 schemas:
   spec:
