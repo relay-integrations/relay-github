@@ -18,3 +18,4 @@ This integration contains the following steps:
 | Name | Description |
 |------|-------------|
 | [repositories-file-content-validate](/steps/repositories-file-content-validate) | Validate that a file path has or does not have specific content in a list of repositories  |
+| [repositories-describe](/steps/repositories-describe) | Describe the repositories owned by an organization |
