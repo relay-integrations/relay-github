@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+	"repositories": {
+	  "type": "array",
+	  "items": {
+		"type": "object"
+	  },
+	  "description": "The GitHub repositories matching specified criteria belonging to an org."
+	}
+  },
+  "required": [
+	"repositories"
+  ],
+  "additionalProperties": false
+}

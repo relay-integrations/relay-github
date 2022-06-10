@@ -18,3 +18,4 @@ This integration contains the following steps:
 | Name | Description |
 |------|-------------|
 | [repositories-set-topics](/steps/repositories-set-topics) | Modify the topics of a list of repositories  |
+| [repositories-describe](/steps/repositories-describe) | Describe the repositories owned by an organization |
