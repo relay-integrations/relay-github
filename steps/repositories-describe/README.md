@@ -10,5 +10,5 @@ filtering and ordering the list. If you pass a name, it will return a complete
 object representing that repository. If you pass filter/order params, it will
 return a list of all matching repos.
 
-By default, this list is only the full name of each repository. If you'd like
+By default, this list is only the name of each repository. If you'd like
 more fields returned, list them in the `fields` parameter.

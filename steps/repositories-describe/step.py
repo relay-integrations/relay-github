@@ -45,8 +45,8 @@ try:
     repos = gh.get_organization(org).get_repos(type=scope, sort=sort, direction=direction)
     repos = list(map(lambda x: x.raw_data, repos))
 
-    # ensure that the full_name is part of the fields; doesn't matter if it's there twice
-    fields.insert(0, 'full_name')
+    # ensure that the name is part of the fields; doesn't matter if it's there twice
+    fields.insert(0, 'name')
 
     # now filter to have only the fields requested so that we don't exceed payload size when saving output.
     repos = list(map(lambda repo: { key: repo[key] for key in fields }, repos))
