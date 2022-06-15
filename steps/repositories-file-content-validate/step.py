@@ -21,7 +21,7 @@ try:
   path = relay.get(D.path)
 except:
   path = None
-  
+
 try:
   path_regex = relay.get(D.path_regex)
 except:
@@ -47,7 +47,7 @@ for name in repos:
         raise ValueError("No files matched given regex")
 
     blob = repo.get_contents(path).decoded_content.decode("utf-8")
-    if re.match(content, blob):
+    if re.search(content, blob):
       matches.append(name)
 
     print(f'success.')
