@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "connection": {
+      "type": "object",
+      "description": "A GitHub connection",
+      "properties": {
+        "accessToken": {
+          "type": "string",
+          "writeOnly": true,
+          "description": "A GitHub access token"
+        }
+      },
+      "required": [
+        "accessToken"
+      ]
+    },
+    "repo": {
+      "type": "string",
+      "description": "The repository to interacts with in user/repo format."
+    },
+    "path": {
+      "type": "string",
+      "description": "The path of the file within the repository."
+    },
+    "contents": {
+      "type": "string",
+      "description": "The contents that you would like the file updated to."
+    },
+    "branch": {
+      "type": "string",
+      "description": "The branch to commit to.",
+      "default": "main"
+    },
+    "message": {
+      "type": "string",
+      "description": "The commit message to use",
+      "default": "Updating <path>"
+    }
+  },
+  "required": [
+    "repo",
+    "path",
+    "contents"
+  ],
+  "additionalProperties": false
+}
