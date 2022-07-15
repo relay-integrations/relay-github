@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "connection": {
+      "type": "object",
+      "description": "A GitHub connection",
+      "properties": {
+        "accessToken": {
+          "type": "string",
+          "writeOnly": true,
+          "description": "A GitHub access token"
+        }
+      },
+      "required": [
+        "accessToken"
+      ]
+    },
+    "org": {
+      "type": "string",
+      "description": "The GitHub org to query."
+    },
+    "repos": {
+       "type": "array",
+       "items": {
+       "type": "string"
+       },
+       "description": "A list of repositories to validate."
+     }
+  },
+  "required": [
+    "org",
+    "repos"
+  ],
+  "additionalProperties": false
+}
