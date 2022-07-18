@@ -26,7 +26,7 @@ for repo in repos:
 
     with urllib.request.urlopen(req) as url:
       data = json.loads(url.read().decode())
-      if data['errors'] or data['message'] == 'Not Found':
+      if 'errors' in data.keys() or data['message'] == 'Not Found':
         failures.append(repo['name'])
 
   except Exception as err:
